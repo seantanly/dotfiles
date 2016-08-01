@@ -26,6 +26,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-ruby/vim-ruby'
@@ -105,6 +106,7 @@ nnoremap <C-\> :source ~/.vimrc<CR>
 nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>q :close<CR>
+nnoremap <Leader>l :ls<CR>:b<SPACE>
 
 function! CursorPing()
   hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
