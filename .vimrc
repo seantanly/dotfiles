@@ -46,8 +46,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'rking/ag.vim'
 
-" Disable if on server
-Plugin 'Valloric/YouCompleteMe'
+if has('mac')
+  Plugin 'Valloric/YouCompleteMe'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,8 +87,10 @@ match ErrorMsg '\s\+$'
 " Trim Trailing Whitespace
 nnoremap <Leader>ttw :%s/\s\+$//e<CR>
 
-" Enable copy/paste onto Mac clipboard
-set clipboard=unnamed
+if has('mac')
+  " Enable copy/paste onto Mac clipboard
+  set clipboard=unnamed
+endif
 
 " Syntastic Configs
 let g:syntastic_elixir_checkers = ['elixir']
