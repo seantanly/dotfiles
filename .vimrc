@@ -43,6 +43,8 @@ Plugin 'ap/vim-css-color'
 Plugin 'mkarmona/colorsbox'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
+" easily search for, substitute, and abbreviate multiple variants of a word
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'rking/ag.vim'
@@ -121,7 +123,7 @@ function! CursorPing()
   set nocursorline nocursorcolumn
 endfunction
 
-nnoremap <C-P> :call CursorPing()<CR>
+nnoremap <C-P><C-P> :call CursorPing()<CR>
 
 " set path=$PWD/**
 set path=.,,**
