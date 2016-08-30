@@ -46,6 +46,7 @@ Plugin 'Raimondi/delimitMate'
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'rking/ag.vim'
 
