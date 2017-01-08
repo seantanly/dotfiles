@@ -31,11 +31,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'isRuslan/vim-es6'
 Plugin 'benmills/vimux'
 Plugin 'spiegela/vimix'
 Plugin 'stephpy/vim-yaml'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'slim-template/vim-slim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ap/vim-css-color'
@@ -99,6 +102,16 @@ endif
 " Syntastic Configs
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " Set faster update for gitgutter - in ms
 set updatetime=250
