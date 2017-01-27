@@ -1,2 +1,2 @@
 " Fastlane
-au BufNewFile,BufRead Appfile,Fastfile		set filetype=ruby
+au BufNewFile,BufRead Appfile,Fastfile,Gymfile,Matchfile		set filetype=ruby
