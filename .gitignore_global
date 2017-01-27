@@ -1,0 +1,5 @@
+.DS_Store
+.swp
+.*.swp
+**/_build
+.byebug_history
