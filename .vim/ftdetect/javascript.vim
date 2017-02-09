@@ -1,2 +1,2 @@
 " Babel
-au BufNewFile,BufRead .babelrc		set filetype=javascript
+au BufNewFile,BufRead .babelrc,.eslintrc		set filetype=javascript
