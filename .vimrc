@@ -103,6 +103,8 @@ endif
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_enable_javascript_checker = 1
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
