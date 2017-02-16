@@ -104,16 +104,16 @@ let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_javascript_checker = 1
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Set faster update for gitgutter - in ms
 set updatetime=250
