@@ -3,7 +3,7 @@
 CUR_PATH=$(pwd)
 echo $CUR_PATH
 
-declare -a arr=(".gitconfig" ".gitignore_global" ".tern-config" ".tmux.conf" ".vimrc" ".vim/ftdetect" ".vim/ftplugin")
+declare -a arr=(".eslintrc.js" ".gitconfig" ".gitignore_global" ".tern-config" ".tmux.conf" ".vimrc" ".vim/ftdetect" ".vim/ftplugin")
 
 for i in "${arr[@]}"
 do
