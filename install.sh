@@ -8,7 +8,7 @@ declare -a arr=(".eslintrc.js" ".gitconfig" ".gitignore_global" ".tern-config" "
 for i in "${arr[@]}"
 do
 	FILE_PATH="$CUR_PATH/$i"
-	CMD="ln -sn $FILE_PATH $HOME/$i"
+	CMD="ln -is $FILE_PATH $HOME/$i"
 	echo $CMD
 	$($CMD)
 done
