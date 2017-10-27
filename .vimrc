@@ -36,10 +36,21 @@ Plugin 'benmills/vimux'
 Plugin 'spiegela/vimix'
 Plugin 'stephpy/vim-yaml'
 Plugin 'pangloss/vim-javascript'
+
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'leafgarland/typescript-vim'
+" Auto-complete for typescript
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Quramy/tsuquyomi-vue'
+
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'slim-template/vim-slim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'posva/vim-vue'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ap/vim-css-color'
 
@@ -49,7 +60,6 @@ Plugin 'Raimondi/delimitMate'
 " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'rking/ag.vim'
 
@@ -100,7 +110,7 @@ if has('mac')
 endif
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|_build|deps)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -112,14 +122,18 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_javascript_checker = 1
 " let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" The following settings is causing problems keep getting errors
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-markdown disable folding
+let g:vim_markdown_folding_disabled = 1
 
 " Set faster update for gitgutter - in ms
 set updatetime=250

@@ -8,6 +8,7 @@ module.exports = {
   "plugins": ["import"],
   "extends": ["eslint:recommended", "plugin:import/recommended"],
   "parserOptions": {
+    "ecmaVersion": "2017",
     "sourceType": "module",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -16,10 +17,11 @@ module.exports = {
   "rules": {
     "indent": ["error", 2, {"SwitchCase": 1}],
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "never"],
+    "quotes": ["error", "single", {"avoidEscape": true}],
+    "semi": ["error", "always"],
     "no-unused-vars": ["error", { "argsIgnorePattern": "^__" }],
-    "no-console": ["warn"],
+    "no-console": ["off"], // too common to warn
+    "no-useless-escape": ["error"],
     "import/export": ["error"],
     "import/no-named-as-default": ["error"],
     "import/no-named-as-default-member": ["error"],
@@ -32,7 +34,7 @@ module.exports = {
     "import/extensions": ["error", "never"],
     "import/newline-after-import": ["error"],
     "import/prefer-default-export": ["error"],
-    "import/no-unassigned-import": ["error"],
+    "import/no-unassigned-import": ["off"],
     "import/no-named-default": ["error"],
     // "import/no-anonymous-default-export": ["error"], // can't find rule
   },
