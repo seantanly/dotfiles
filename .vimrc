@@ -4,83 +4,71 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" Install Vundle first: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" vim-plug
+" Installation: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'danro/rename.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'bling/vim-airline'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'danro/rename.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'bling/vim-airline'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'ctrlpvim/ctrlp.vim'
 
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'isRuslan/vim-es6'
-Plugin 'benmills/vimux'
-Plugin 'spiegela/vimix'
-Plugin 'stephpy/vim-yaml'
-Plugin 'pangloss/vim-javascript'
+Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-lang/vim-elixir'
+Plug 'isRuslan/vim-es6'
+Plug 'benmills/vimux'
+Plug 'spiegela/vimix'
+Plug 'stephpy/vim-yaml'
+Plug 'pangloss/vim-javascript'
 
 " Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
-Plugin 'leafgarland/typescript-vim'
 " Auto-complete for typescript
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Quramy/tsuquyomi-vue'
+Plug 'w0rp/ale' "Asynchronous Lint Engine
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocompletion
+Plug 'HerringtonDarkholme/yats.vim' " ts extension detection
+Plug 'mhartington/nvim-typescript'
+Plug 'posva/vim-vue'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-dispatch'
 
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'slim-template/vim-slim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'posva/vim-vue'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ap/vim-css-color'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'digitaltoad/vim-pug'
+Plug 'slim-template/vim-slim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ap/vim-css-color'
 
-Plugin 'mkarmona/colorsbox'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'Raimondi/delimitMate'
+Plug 'mkarmona/colorsbox'
+Plug 'easymotion/vim-easymotion'
+Plug 'Raimondi/delimitMate'
 " easily search for, substitute, and abbreviate multiple variants of a word
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-surround'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'rking/ag.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rking/ag.vim'
 
 if has('mac')
-  Plugin 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
 endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+call plug#end()
+
 
 let NERDSpaceDelims=1
 let g:vimix_map_keys = 1
@@ -115,22 +103,11 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" Syntastic Configs
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_javascript_checker = 1
-" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
 
-" The following settings is causing problems keep getting errors
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
 
 " vim-markdown disable folding
 let g:vim_markdown_folding_disabled = 1
